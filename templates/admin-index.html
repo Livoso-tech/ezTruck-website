@@ -1,0 +1,127 @@
+{%load static%}{%include 'include/admin-header.html'%}
+<!DOCTYPE html>
+<html lang="en" class="loading">
+
+<head>
+  <title>ezTruck Admin Panel</title>
+</head>
+
+<body data-col="2-columns" class="2-columns">
+  <!-- ////////////////////////////////////////////////////////////////////////////-->
+  <div class="wrapper">
+    <div class="main-panel">
+      <div class="main-content">
+        <div class="content-wrapper">
+          <div class="container-fluid">
+            <!-- Minimal statistics with bg color section start -->
+            <section id="minimal-statistics-bg">
+              <div class="row">
+                <div class="col-12 mt-3 mb-1">
+                  <h2 class="content-header">
+                    All our Details
+                  </h2>
+                  <p class="content-sub-header">
+                    Given Below
+                  </p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xl-3 col-lg-6 col-12">
+                  <div class="card gradient-orange-amber">
+                    <div class="card-body">
+                      <div class="px-3 py-3">
+                        <div class="media">
+                          <div class="align-center">
+                            <i class="icon-notebook text-white font-large-2 float-left"></i>
+                          </div>
+                          <div class="media-body text-white text-right">
+                            <h3 class="text-white">{{Booking}}</h3>
+                            <span>Total Bookings</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-12">
+                  <div class="card gradient-light-blue-cyan">
+                    <div class="card-body">
+                      <div class="px-3 py-3">
+                        <div class="media">
+                          <div class="align-center">
+                            <i class="icon-book-open text-white font-large-2 float-left"></i>
+                          </div>
+                          <div class="media-body text-white text-right">
+                            <h3 class="text-white">{{enterpricedetails}}</h3>
+                            <span>Enterprice Details</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-12">
+                  <div class="card gradient-red-pink">
+                    <div class="card-body">
+                      <div class="px-3 py-3">
+                        <div class="media">
+                          <div class="align-center">
+                            <i class="icon-speech text-white font-large-2 float-left"></i>
+                          </div>
+                          <div class="media-body text-white text-right">
+                            <h3 class="text-white">{{Contactus}}</h3>
+                            <span>Conatact Us </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-12">
+                  <div class="card gradient-mint">
+                    <div class="card-body">
+                      <div class="px-3 py-3">
+                        <div class="media">
+                          <div class="align-center">
+                            <i class="icon-pencil text-white font-large-2 float-left"></i>
+                          </div>
+                          <div class="media-body text-white text-right">
+                            <h3 class="text-white">{{Careerapply}}</h3>
+                            <span>Total Apply</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xl-3 col-lg-6 col-12">
+                  <div class="card gradient-blue-grey-blue-grey">
+                    <div class="card-body">
+                      <div class="px-3 py-3">
+                        <div class="media">
+                          <div class="align-center">
+                            <i class="icon-pointer text-white font-large-2 float-left"></i>
+                          </div>
+                          <div class="media-body text-white text-right">
+                            <h3 class="text-white">{{driverdetails}}</h3>
+                            <span>Driver Details</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <!-- // Minimal statistics with bg color section end -->
+          </div>
+        </div>
+      </div>
+      {%include 'include/admin-footer.html'%}
+    </div>
+  </div>
+</body>
+
+</html>

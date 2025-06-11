@@ -1,0 +1,90 @@
+{%load static%}{%include 'include/admin-header.html'%}
+<!DOCTYPE html>
+<html lang="en" class="loading">
+
+<head>
+    <title>Booking Orders</title>
+    <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+</head>
+
+<body data-col="3-columns" class="3-columns ">
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+    <div class="wrapper">
+        <div class="main-panel">
+            <div class="main-content">
+                <div class="content-wrapper">
+                    <div class="container-fluid">
+                        <!-- Scroll - horizontal and vertical table -->
+                        <section id="horizontal">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <div class="card-title-wrap bar-danger">
+                                                <h4 id="bookings" class="card-title">Booking Orders</h4>
+                                            </div>
+                                        </div>
+                                        <div class="card-body collapse show">
+                                            <div class="card-block card-dashboard">
+                                                <table id="tbl_exporttable_to_xls"
+                                                    class="table display nowrap table-striped table-bordered scroll-horizontal">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>ID</th>
+                                                            <th>Name</th>
+                                                            <th>Email</th>
+                                                            <th>Phone</th>
+                                                            <th>Source</th>
+                                                            <th>Destination</th>
+                                                            <th>Distance</th>
+                                                            <th>Durations</th>
+                                                            <th>Vehicle</th>
+                                                            <th>Total Price(₹)</th>
+                                                            <th>Booking Time</th>
+                                                        </tr>
+                                                    </thead>
+                                                    {% for data in data %}
+                                                    <tr>
+                                                        <td>{{ forloop.counter }}</td>
+                                                        <td>{{data.Bname}}</td>
+                                                        <td>{{data.Bemail}}</td>
+                                                        <td>{{data.Bphone}}</td>
+                                                        <td>{{data.source}}</td>
+                                                        <td>{{data.destination}}</td>
+                                                        <td>{{data.distance}}</td>
+                                                        <td>{{data.durations}}</td>
+                                                        <td>{{data.truck}}</td>
+                                                        <td>₹{{data.total_price}}</td>
+                                                        <td>{{data.booktime}}</td>
+                                                    </tr>
+                                                    {% endfor %}
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <input class="btn mr-1 btn-round btn-success" type="button" value="Download XLSX"
+                                onclick="ExportToExcel('xlsx')" />
+                        </section>
+                        <!--/ Scroll - horizontal and vertical table -->
+                    </div>
+                </div>
+            </div>
+            {%include 'include/admin-footer.html'%}
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+    <script type="text/javascript">
+        function ExportToExcel(type, fn, dl) {
+            var elt = document.getElementById('tbl_exporttable_to_xls');
+            var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
+            return dl ?
+                XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
+                XLSX.writeFile(wb, fn || ('OnlineBookings.' + (type || 'xlsx')));
+        }
+    </script>
+
+</body>
+
+</html>

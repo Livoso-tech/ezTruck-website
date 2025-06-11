@@ -1,0 +1,131 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en" class="loading">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
+  <link rel="shortcut icon" href="{%static 'img/favicon.png'%}">
+  <link
+    href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900%7CMontserrat:300,400,500,600,700,800,900"
+    rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="{%static 'ezadmin/fonts/feather/style.min.css'%}" />
+  <link rel="stylesheet" type="text/css" href="{%static 'ezadmin/fonts/simple-line-icons/style.css'%}" />
+  <link rel="stylesheet" type="text/css" href="{%static 'ezadmin/fonts/font-awesome/css/font-awesome.min.css'%}" />
+  <link rel="stylesheet" type="text/css" href="{%static 'ezadmin/vendors/css/perfect-scrollbar.min.css'%}" />
+  <link rel="stylesheet" type="text/css" href="{%static 'ezadmin/vendors/css/prism.min.css'%}" />
+  <link rel="stylesheet" type="text/css" href="{%static 'ezadmin/vendors/css/chartist.min.css'%}" />
+  <link rel="stylesheet" type="text/css" href="{%static 'ezadmin/css/app.css'%}" />
+  <link rel="stylesheet" type="text/css" href="{%static 'ezadmin/vendors/css/wizard.css'%}">
+  <link rel="stylesheet" type="text/css" href="{%static 'ezadmin/vendors/css/tables/datatable/datatables.min.css'%}">
+</head>
+
+<body data-col="2-columns" class="2-columns">
+  <div class="wrapper">
+    <div data-active-color="white" data-background-color="black"
+      data-image="{%static 'ezadmin/img/sidebar-bg/08.jpg'%}" class="app-sidebar">
+      <div class="sidebar-header">
+        <div class="logo clearfix"><a href="{%url 'index'%}" class="logo-text float-left">
+            <div class="logo-img"><img src="{%static 'images/icons/logo-white.png'%}" alt="ezTruck Logo" /></div>
+          </a>
+        </div>
+      </div>
+      <div class="sidebar-content">
+        <div class="nav-container">
+          <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main">
+            <li class="nav-item">
+              <a href="{%url 'admin-index'%}"><i class="icon-home"></i><span data-i18n=""
+                  class="menu-title">Dashboard</span></a>
+            </li>
+
+            <li class="nav-item">
+              <a href="{%url 'admin-1way-estimator'%}"><i class="icon-calculator"></i><span data-i18n=""
+                  class="menu-title">Estimator</span></a>
+            </li>
+
+            <li class="nav-item">
+              <a href="{%url 'admin-corporate'%}"><i class="icon-calculator"></i><span data-i18n=""
+                  class="menu-title">Corporate Fare Price</span></a>
+            </li>
+
+            <li class="nav-item">
+              <a href="{%url 'admin-tables'%}"><i class="icon-wallet"></i><span data-i18n="" class="menu-title">Fare
+                  price</span></a>
+            </li>
+
+            <li class="nav-item">
+              <a href="{%url 'admin-off-book-details'%}"><i class="icon-folder"></i><span data-i18n="" class="menu-title">Offline
+                  Booking</span></a>
+            </li>
+
+            <li class="nav-item">
+              <a href="{%url 'admin-leas-vech-details'%}"><i class="icon-list"></i><span data-i18n=""
+                class="menu-title">Lease Vechicle </span></a>
+            </li>
+
+            <li class="nav-item">
+              <a href="{%url 'admin-loc-driver-details'%}"><i class="icon-user"></i><span data-i18n=""
+                class="menu-title">Local Driver </span></a>
+            </li>
+
+            <li class="nav-item">
+              <a href="{%url 'admin-booking-details'%}"><i class="icon-book-open"></i><span data-i18n=""
+                  class="menu-title">Online Inqury</span></a>
+            </li>
+
+            <li class="nav-item">
+              <a href="{%url 'admin-customer_details'%}"><i class="icon-notebook"></i><span data-i18n=""
+                  class="menu-title">Customer details</span></a>
+            </li>
+
+            <li class="nav-item">
+              <a href="{%url 'admin-enterprice-details'%}"><i class="icon-users"></i><span data-i18n=""
+                  class="menu-title">Online Enterprice </span></a>
+            </li>
+
+            <li class="nav-item">
+              <a href="{%url 'admin-driver-details'%}"><i class="icon-user"></i><span data-i18n=""
+                class="menu-title">Online Driver </span></a>
+            </li>
+
+            <!-- <li class="nav-item">
+              <a href="{%url 'index' %}#booking"><i class="icon-map"></i><span data-i18n="" class="menu-title">Online
+                  Estimator</span></a>
+            </li> -->
+          </ul>
+        </div>
+      </div>
+      <div class="sidebar-background"></div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-faded">
+      <div class="container-fluid">
+        <div class="navbar-header">
+        </div>
+        <div class="navbar-container">
+          <div id="navbarSupportedContent" class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+              <li class="dropdown nav-item mr-0">
+                <a id="dropdownBasic3" href="#" data-toggle="dropdown"
+                  class="nav-link position-relative dropdown-user-link dropdown-toggle"><span
+                    class="avatar avatar-online"><img id="navbar-avatar" src="{%static 'ezadmin/img/profile.png'%}"
+                      alt="avatar" /></span>
+                  <p class="d-none">User Settings</p>
+                </a>
+                <div aria-labelledby="dropdownBasic3" class="dropdown-menu dropdown-menu-right">
+                  <div class="arrow_box_right">
+                    <a href="{% url 'admin-logout' %}" class="dropdown-item"><i
+                        class="ft-power mr-2"></i><span>Logout</span></a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,258 @@
+{%load static%}
+<div class="top-bar-wrapper d-none d-sm-block">
+    <div class="container d-flex justify-content-between align-items-center">
+        <div class="top-left">
+            <a href="javascript:void(0)"><i class="fal fa-phone-volume"></i>1800-208-3311</a>
+            <a href="javascript:void(0)"><i class="fal fa-envelope"></i>hello@eztruck.co</a>
+
+        </div>
+        <div class="top-right d-none d-md-block">
+            <div class="social-pages">
+                <div class="social top-social">
+                    <div class="social-network social-circle" style="display:inline ;">
+
+                        <a class="circlef" href="https://www.facebook.com/ezTruckIndia" target="_blank"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a class="circlei" href="https://www.instagram.com/eztruck_logistics/" target="_blank"><i
+                                class="fab fa-instagram"></i></a>
+                        <a class="circlet" href="https://twitter.com/eztrucklogistic" target="_blank"><i
+                                class="fab fa-twitter"></i></a>
+                        <a class="circlel" href="https://www.linkedin.com/company/eztrucklogistics/" target="_blank"><i
+                                class="fab fa-linkedin-in"></i></a>
+                        <a class="circley" href="https://www.youtube.com/channel/UCPikp3nlwQz4YEY4_orm83Q"
+                            target="_blank"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<header class="header-1">
+    <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div class="col-lg-2 col-sm-5 col-md-4 col-6 pr-lg-5 pt-2 pb-2">
+                <div class="logo">
+                    <a href="{%url 'index'%}">
+                        <img src="{%static 'images/icons/logo.png'%}" alt="Mini Truck Booking - ezTruck Logistics">
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div
+                class="col-lg-9 col-xlg-8 col-12 text-end pr-lg-2 d-none d-lg-flex d-xlg-flex justify-content-between align-items-center">
+                <div class="menu-wrap">
+                    <div class="main-menu" method="get">
+                        <ul>
+                            <li><a>Company <i class="fas fa-angle-down"></i></a>
+                                <ul class="sub-menu">
+                                    <li><a href="{%url 'about' %}">About Us</a> </li>
+                                    <li><a href="{%url 'news' %}">News</a></li>
+                                    <li><a href="{%url 'termANDconditions' %}">Term & Condition</a></li>
+                                    <li><a href="{%url 'FAQ' %}">Faq</a></li>
+                                </ul>
+                            </li>
+                            <li><a>Services <i class="fas fa-angle-down"></i></a>
+                                <ul class="sub-menu">
+                                    <li> <a href="{%url 'LocalLogistics'%}">Local Logistics </a>
+                                        <ul class="submenu menu-link3">
+                                            <li><a href="{%url 'bhubaneswar'%}">Logistics Services in
+                                                    Bhubaneswar</a>
+                                            </li>
+                                            <li><a href="{%url 'cuttack'%}">Logistics Services in
+                                                    Cuttack</a>
+                                            </li>
+                                            <li><a href="{%url 'berhampur'%}">Logistics Services in
+                                                    Berhampur</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="{%url 'HouseShifting'%}">House Shifting</a>
+                                        <ul class="submenu menu-link3">
+                                            <li><a href="{%url 'houseshiftingbhubaneswar'%}">House Shifting in
+                                                    Bhubaneswar
+                                                </a>
+                                            </li>
+                                            <li><a href="{%url 'houseshiftingcuttack'%}">House Shifting in Cuttack
+                                                </a>
+                                            </li>
+                                            <li><a href="{%url 'houseshiftingberhampur'%}">House Shifting in
+                                                    Berhampur</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="{%url 'MoversPacker'%}">Packers & Movers</a>
+                                        <ul class="submenu menu-link3">
+                                            <li><a href="{%url 'packersmoversbhubaneswar'%}">Packers & Movers in
+                                                    Bhubaneswar
+                                                </a>
+                                            </li>
+                                            <li><a href="{%url 'packersmoverscuttack'%}">Packers & Movers in Cuttack
+                                                </a>
+                                            </li>
+                                            <li><a href="{%url 'packersmoversberhampur'%}">Packers & Movers in
+                                                    Berhampur</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="{%url 'constructionMaterials'%}">Construction Material</a>
+                                        <ul class="submenu menu-link3">
+                                            <li><a href="{%url 'constructionbhubaneswar'%}">Construction Material
+                                                    Logistics in
+                                                    Bhubaneswar</a>
+                                            </li>
+                                            <li><a href="{%url 'constructioncuttack'%}">Construction Material Logistics
+                                                    in
+                                                    Cuttack</a>
+                                            </li>
+                                            <li><a href="{%url 'constructionberhampur'%}">Construction Material
+                                                    Logistics in
+                                                    Berhampur</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="{%url 'businessLogistics'%}">Business logistics</a>
+                                        <ul class="submenu menu-link3">
+                                            <li><a href="{%url 'businesslogisticsbhubaneswar'%}">Business Logistics in
+                                                    Bhubaneswar</a>
+                                            </li>
+                                            <li><a href="{%url 'businesslogisticscuttack'%}">Business Logistics in
+                                                    Cuttack</a>
+                                            </li>
+                                            <li><a href="{%url 'businesslogisticsberhampur'%}">Business Logistics in
+                                                    Berhampur</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="{%url 'FurnitureLogistics'%}">Furniture Logistics</a>
+                                        <ul class="submenu menu-link3">
+                                            <li><a href="{%url 'furniturebhubaneswar'%}">Furniture Logistics in
+                                                    Bhubaneswar</a>
+                                            </li>
+                                            <li><a href="{%url 'furniturecuttack'%}">Furniture Logistics in
+                                                    Cuttack
+                                                </a>
+                                            </li>
+                                            <li><a href="{%url 'furnitureberhampur'%}">Furniture Logistics in
+                                                    Berhampur</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="{%url 'MiningLogistics'%}">Mining Logistics</a>
+                                        <ul class="submenu menu-link3">
+                                            <li><a href="{%url 'mininglogisticsbhubaneswar'%}">Mining Logistics in
+                                                    Bhubaneswar</a>
+                                            </li>
+                                            <li><a href="{%url 'mininglogisticscuttack'%}">Mining Logistics in Cuttack
+                                                </a>
+                                            </li>
+                                            <li><a href="{%url 'mininglogisticsberhampur'%}">Mining Logistics in
+                                                    Berhampur</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="{%url 'EcommerceLogistics'%}">E-Commerce Logistics</a>
+                                        <ul class="submenu menu-link3">
+                                            <li><a href="{%url 'ecommercebhubaneswar'%}">E-Commerce Logistics in
+                                                    Bhubaneswar</a>
+                                            </li>
+                                            <li><a href="{%url 'ecommercecuttack'%}">E-Commerce Logistics in
+                                                    Cuttack
+                                                </a>
+                                            </li>
+                                            <li><a href="{%url 'ecommerceberhampur'%}">E-Commerce Logistics in
+                                                    Berhampur</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="{%url 'TransportionServices'%}">Transportion Services</a>
+                                        <ul class="submenu menu-link3">
+                                            <li><a href="{%url 'transportbhubaneswar'%}">Transportation Services in
+                                                    Bhubaneswar</a>
+                                            </li>
+                                            <li><a href="{%url 'transportcuttack'%}">Transportation Services in
+                                                    Cuttack</a>
+                                            </li>
+                                            <li><a href="{%url 'transportberhampur'%}">Transportation Services in
+                                                    Berhampur</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a href="{%url 'driver' %}">Driver</a></li>
+                            <li><a href="{%url 'enterprise' %}"> Enterprise Logistics</a></li>
+                            <li><a href="{%url 'career' %}">Career</a></li>
+                            <li><a href="{%url 'blog' %}">Blog</a></li>
+                            <li><a href="{%url 'contact' %}">Contact</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="header-right-element">
+                    <a href="{%url 'index'%}#booking" class="theme-btn2">Book Now <i
+                            class="fal fa-long-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="d-block d-lg-none col-sm-1 col-md-8 col-2">
+                <div class="mobile-nav-wrap">
+                    <div id="hamburger"><i class="fal fa-bars"></i></div>
+                    <!-- mobile menu - responsive menu  -->
+                    <div class="mobile-nav">
+                        <button type="button" class="close-nav">
+                            <i class="fal fa-times-circle"></i>
+                        </button>
+                        <nav class="sidebar-nav">
+                            <ul id="mobile-menu" class="metismenu">
+                                <li><a>Company <i class="fas fa-angle-down"></i></a>
+                                    <ul class="sub-menu">
+                                        <li><a href="{%url 'about' %}">About Us</a> </li>
+                                        <li><a href="{%url 'news' %}">News</a></li>
+                                        <li><a href="{%url 'termANDconditions' %}">Term & Condition</a></li>
+                                        <li><a href="{%url 'FAQ' %}">Faq</a></li>
+                                    </ul>
+                                </li>
+                                <li><a>Services <i class="fas fa-angle-down"></i></a>
+                                    <ul class="sub-menu">
+                                        <li><a href="{%url 'LocalLogistics'%}">Local Logistics </a></li>
+                                        <li><a href="{%url 'HouseShifting'%}">House Shifting</a></li>
+                                        <li><a href="{%url 'MoversPacker'%}">Packers & Movers</a></li>
+                                        <li><a href="{%url 'constructionMaterials'%}">Construction Material</a></li>
+                                        <li><a href="{%url 'businessLogistics'%}">Business logistics</a></li>
+                                        <li><a href="{%url 'FurnitureLogistics'%}">Furniture Logistics</a></li>
+                                        <li><a href="{%url 'MiningLogistics'%}">Mining Logistics</a></li>
+                                        <li><a href="{%url 'EcommerceLogistics'%}">E-Commerce Logistics</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="{%url 'driver' %}">Driver</a></li>
+                                <li><a href="{%url 'enterprise' %}"> Enterprise Logistics</a></li>
+                                <li><a href="{%url 'career' %}">Career</a></li>
+                                <li><a href="{%url 'blog' %}">Blog</a></li>
+                                <li><a href="{%url 'contact' %}">Contact</a></li>
+
+                            </ul>
+                            <div class="action-bar text-white">
+                                <div class="single-info-element">
+                                    <ul id="mobile-menu" class="metismenu">
+                                        <li> <a href="javascript:void(0)"><i
+                                                    class="fal fa-phone-volume"></i>1800-208-3311</a></li>
+                                        <li> <a href="javascript:void(0)"><i
+                                                    class="fal fa-envelope"></i>hello@eztruck.co</a></li>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <a href="{%url 'index'%}#booking" class="theme-btn2">Book Now <i
+                                        class="fal fa-long-arrow-right"></i></a>
+                            </div>
+                        </nav>
+
+
+                    </div>
+                </div>
+                <div class="overlay"></div>
+            </div>
+        </div>
+    </div>
+</header>

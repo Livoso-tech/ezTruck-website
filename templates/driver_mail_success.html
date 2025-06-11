@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking successful mail</title>
+
+</head>
+<style>
+    body {
+        font-family: arial, helvetica, sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #444;
+        background: #f2f2f2;
+    }
+    
+    p {
+        margin: 10px 0;
+    }
+    
+    a {
+        color: #dc143c;
+        ;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    
+    a:hover {
+        color: #dc143c;
+        ;
+    }
+    /**
+       * Parent <table>
+       */
+    
+    .wrapper {
+        margin: 20px 0;
+    }
+    /**
+       * Main content area, responsive
+       */
+    
+    .content {
+        display: block !important;
+        max-width: 600px !important;
+        margin: 0 auto !important;
+        clear: both !important;
+        background: white;
+    }
+    /**
+       * Style for the "WebDesigner" logo
+       */
+    
+    .brand {
+        font-size: 30px;
+        /**
+         * Make the word "web" orange
+         */
+    }
+    
+    .brand span {
+        color: #dc143c;
+        padding-top: 20px;
+    }
+    /**
+       * Date email was sent
+       */
+    
+    .date {
+        color: #999;
+    }
+    /**
+       * "Thank you for contacting us"
+       */
+    
+    h1 {
+        font-size: 30px;
+        color: #dc143c;
+        margin: 30px 0;
+    }
+    /**
+       * "Hear what others are saying"
+       */
+    
+    h2 {
+        font-size: 20px;
+        color: #dc143c;
+        margin: 30px 0;
+    }
+    /**
+       * Apply a border to the top and bottom of the 
+       * main content area
+       */
+    
+    .border {
+        border-top: 2px solid #e67e22;
+        border-bottom: 2px solid #e67e22;
+    }
+    /**
+       * Greyed out contact details at footer
+       */
+    
+    .contact {
+        font-size: 11px;
+        color: #999;
+    }
+    /**
+       * Individual Testimonial
+       */
+    
+    .testimonial {
+        margin-bottom: 10px;
+    }
+    
+    .testimonial h3 {
+        margin-bottom: 0;
+    }
+    
+    .testimonial p {
+        margin: 5px 0 0;
+    }
+    
+    .testimonial .stars {
+        color: #e67e22;
+    }
+</style>
+
+<body>
+    <table width="100%" class="wrapper">
+        <tr>
+            <td class="container">
+                <div class="content">
+                    <table cellspacing="20" width="100%">
+                        <tr>
+                            <td>
+                                <div style="display:flex;">
+                                    <img style="height: 80px; width: 80px;" src="https://sulcdn.azureedge.net/biz-live/img/eztruck-10903453-8e96fedd.jpeg">
+
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border">
+                                <h3>Your Vehicle Attach Confirmation Time</h3>
+                                <p class="date"><span id="datetime"></span></p>
+                                <script>
+                                    var dt = new Date();
+                                    document.getElementById("datetime").innerHTML = dt.toLocaleString();
+                                </script>
+                                </p>
+                                <h1>Thank you for attaching your Vehicle!!!</h1>
+                                <p>Vehicle attachment details given below:</p>
+                                <form style="border: 1px solid #000; font-size: 20px; box-shadow: black 0px 8px 10px;width:500px;">
+                                    <ul style="list-style-type:none;">
+                                        <li><label class="label" for="name">Name: {{D_name}}</label></li>
+                                        <li><label class="label" for="number">Phone Number: {{D_phone}}</label></li>
+                                        <li><label class="label" for="email"> Email id: {{D_mail}}</label></li>
+                                        <li><label class="label" for="city">City: {{D_city}}</label></li>
+                                        <li><label class="label" for="name">LicenseNumber: {{D_lic}}</label></li>
+                                        <li><label class="label" for="name">VehicleNumber: {{D_vic_num}}</label></li>
+                                        <li><label class="label" for="name">VehicleType: {{D_type_veh}}</label></li>
+                                    </ul>
+                                </form>
+                                <p>We will be in contact with you as soon as possible. </p>
+                                <p>You are welcome to call us on . </p>
+
+                                <h2>For any other query...</h2>
+                                <p>Call our Customer Care Number <a href="tel:1800-208-3311"><i class="fal fa-phone-volume"></i>1800-208-3311</a></p>
+
+                               
+                            </td>
+                        </tr>
+                        <tr class="contact">
+                            <td align="center">
+                                <div>Copyright &#169; 2022. ezTruck Logistics Pvt. Ltd.</div>
+                                <div>
+                                    <h5>Corporate Office</h5><a href="https://www.google.co.in/maps/place/Sai+Saraswati+Complex+C.S/@20.3243678,85.81929,17z/data=!3m1!4b1!4m5!3m4!1s0x3a19096c8718500b:0x583d609542ca2f85!8m2!3d20.3243683!4d85.8193133">2nd Floor, Sai Saraswati Complex, 81, District Centre, Chandrasekharpur,<br>Bhubaneswar, Odisha-751016 </a>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

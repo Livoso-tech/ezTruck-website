@@ -1,0 +1,93 @@
+{%load static%}{%include 'include/admin-header.html'%}
+<!DOCTYPE html>
+<html lang="en" class="loading">
+
+<head>
+  <title>Estimator for admin only</title>
+</head>
+
+<body data-col="2-columns" class="2-columns">
+  <!-- ////////////////////////////////////////////////////////////////////////////-->
+  <div class="wrapper">
+    <div class="main-panel">
+      <div class="main-content">
+        <div class="content-wrapper">
+          <div class="container-fluid">
+            <!-- Wizard Starts -->
+            <div class="row">
+              <div class="col-sm-12">
+                <h2 class="content-header">Estimator for admin only</h2>
+              </div>
+            </div>
+            <section id="icon-tabs">
+              <div class="row">
+                <div class="col-12">
+                  <div class="card">
+                    <div class="card-header">
+                      <h4 class="card-title">Estimator</h4>
+                    </div>
+                    <div class="card-body">
+                      <div class="card-block">
+                        <form method="POST" class="icons-tab-steps wizard-circle">
+                          {% csrf_token %}
+                          <!-- Step 1 -->
+                          <fieldset>
+                            <div class="row">
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label for="firstName2">Source</label>
+                                  <input type="text" class="form-control" id="search_input" name="deliverycity"
+                                    required />
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label for="lastName2">Destination</label>
+                                  <input type="text" class="form-control" id="search_input1" name="departurecity"
+                                    required />
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="row">
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label for="eventLocation2">Select Vechicle Type</label>
+                                  <select class="custom-select form-control" name="VechicleType" required>
+                                    <option value="">Select Vechicle</option>
+                                    <option value="Auto">Auto</option>
+                                    <option value="Tata Ace">Tata Ace</option>
+                                    <option value="Small Pickup">Small Pickup</option>
+                                    <option value="Large Pickup">Large Pickup</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-6">
+                                <a href="{%url 'admin-index'%}" class="btn btn-round btn-primary mr-1">back</a>
+                                <button type="submit" class="btn btn-success btn-round">
+                                  Submit
+                                </button>
+                              </div>
+                            </div>
+                          </fieldset>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <!-- Wizard Ends -->
+          </div>
+        </div>
+      </div>
+
+      {%include 'include/admin-footer.html'%}
+    </div>
+  </div>
+
+</body>
+
+</html>

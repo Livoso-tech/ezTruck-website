@@ -1,0 +1,136 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://eztruck.co/ship-delivery/">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <title>Ship & Delivery</title>
+    <meta name="keywords"
+        content="logistics company bhubaneswar, Mini truck Booking Services, Online Truck Booking Services, Packers Movers Services, Enterprise Logistics Solutions, Mining Logistics Odisha, Construction Material Logistics, E-commerce logistics">
+
+    {%include 'include/linked.html'%}
+    <style>
+        /* Put the CSS Style Here */
+
+        .paragraph {
+            text-align: justify;
+        }
+    </style>
+</head>
+
+<body class="body-wrapper">
+    {%include 'include/header.html'%}
+    <!-- preloader -->
+    <div class="page-banner-wrap  bg-cover" style="background-image: url('/static/images/banner/ship-delivery.jpg')">
+        <div class="container">
+            <div class="page-heading text-white">
+                <h1 class="banner-heading">Ship & Delivery</h1>
+            </div>
+
+        </div>
+    </div>
+
+
+    <section class="faq-wrapper section-padding2  reveal">
+        <div class="container">
+            <div class="row" style="align-items: justify;">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <h2>Refund Policy:</h2>
+                    <h5>Refunds for cancelled shipments or logistics services will be processed according to the
+                        following guidelines:</h5>
+                    <p class="text-justify"> <b>Full Refund: </b>If a cancellation request is made within the stipulated
+                        cancellation period, the customer will be eligible
+                        for a full refund of the service charges.</p>
+                    <p class="text-justify"><b>Partial Refund: </b>For late cancellations, ezTruck Logistics reserves
+                        the right
+                        to deduct the
+                        applicable cancellation fee
+                        (15% of the total service cost) from the total refund amount.</p>
+                    <p class="text-justify"><b>Refund Processing: </b>Refunds will be processed within 5 business days
+                        from the
+                        date of the
+                        cancellation request. The
+                        actual time it takes for the refund to be reflected in the customer's account may vary based on
+                        the payment method and
+                        financial institution.</p>
+
+
+                    <h2>Cancellation Policy:</h2>
+                    <h5>Customers of ezTruck Logistics Pvt. Ltd. can request to cancel their logistics services in
+                        accordance with the following
+                        guidelines:</h5>
+                    <p class="text-justify"> <b>Order Cancellation: </b>Customers can cancel an order or shipment by
+                        providing written notice to ezTruck Logistics at least
+                        24 hours before the scheduled pickup/delivery date.</p>
+
+                    <p class="text-justify"><b>Partial Shipments: </b>If a customer wishes to cancel a portion of their
+                        shipment while retaining other items, they must
+                        notify ezTruck Logistics within 48 hours of the scheduled pickup/delivery date.</p>
+
+                    <p class="text-justify"><b>Late Cancellation: </b>Cancellation requests received within 12 hours of
+                        the
+                        scheduled pickup/delivery time may incur a
+                        cancellation fee of 15% of the total service cost.</p>
+
+                    <h2>Exceptional Circumstances:</h2>
+                    <p class="text-justify">In cases where ezTruck Logistics fails to provide the agreed-upon logistics
+                        services due to reasons beyond its control
+                        (such as natural disasters, labor strikes, or government regulations), the company will make
+                        reasonable efforts to
+                        provide refunds or reschedule the services, as applicable.</p>
+
+                    <h2>How to Request a Cancellation:</h2>
+                    <p class="text-justify">Customers can request a cancellation by contacting ezTruck Logistics'
+                        customer support team via phone at [customer
+                        support phone number] or email at [customer support email]. The cancellation request should
+                        include the order/shipment
+                        details and the reason for cancellation.</p>
+
+                    <h2>Contact Information:</h2>
+                    <p class="text-justify">For any questions or concerns related to cancellations and refunds,
+                        customers can contact ezTruck Logistics' customer
+                        support team at - 1800-208-3311</p>
+
+                    <h2>Policy Updates:</h2>
+                    <p class="text-justify">ezTruck Logistics Pvt. Ltd. reserves the right to update or modify this
+                        Refund and Cancellation Policy at any time. Any
+                        changes will be communicated to customers via email and will also be available on our official
+                        website.</p>
+
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <footer class="footer-1 footer-wrap">
+        {%include 'include/footer.html'%}
+    </footer>
+    <script type="text/javascript">
+        // Put the jQuery code Here
+        $(document).ready(function () {
+            var max = 300;
+            $(".paragraph").each(function () {
+                var str = $(this).text();
+                if ($.trim(str).length > max) {
+                    var subStr = str.substring(0, max);
+                    var hiddenStr = str.substring(max, $.trim(str).length);
+                    $(this).empty().html(subStr);
+                    $(this).append(' <a href="javascript:void(0);" class="link">Read more…</a>');
+                    $(".link").css("color", "blue");
+                    $(this).append('<span class="addText">' + hiddenStr + '</span>');
+                }
+            });
+            $(".link").click(function () {
+                $(this).siblings(".addText").contents().unwrap();
+                $(this).remove();
+            });
+
+        });
+    </script>
+</body>
+
+</html>

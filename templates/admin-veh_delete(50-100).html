@@ -1,0 +1,94 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en" class="loading">
+
+<head>
+    <title>Delete popup</title>
+    <link rel="shortcut icon" type="image/png" href="{%static 'ezadmin/img/ico/favicon-32.png'%}" />
+    <link
+        href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900%7CMontserrat:300,400,500,600,700,800,900"
+        rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="{%static 'ezadmin/fonts/feather/style.min.css'%}" />
+    <link rel="stylesheet" type="text/css" href="{%static 'ezadmin/fonts/simple-line-icons/style.css'%}" />
+    <link rel="stylesheet" type="text/css" href="{%static 'ezadmin/fonts/font-awesome/css/font-awesome.min.css'%}" />
+    <link rel="stylesheet" type="text/css" href="{%static 'ezadmin/vendors/css/perfect-scrollbar.min.css'%}" />
+    <link rel="stylesheet" type="text/css" href="{%static 'ezadmin/vendors/css/prism.min.css'%}" />
+    <link rel="stylesheet" type="text/css" href="{%static 'ezadmin/vendors/css/chartist.min.css'%}" />
+    <link rel="stylesheet" type="text/css" href="{%static 'ezadmin/css/app.css'%}" />
+</head>
+
+<body data-col="1-column" class="1-column blank-page blank-page">
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+    <div class="wrapper">
+        <!--Error page starts-->
+        <section id="error">
+            <div class="container-fluid">
+                <div class="row full-height-vh">
+                    <div class="col-12 d-flex align-items-center justify-content-center gradient-aqua-marine">
+                        <div class="card px-3 py-2 box-shadow-2">
+                            <div class="card-body">
+                                <div class="card-block">
+                                    <div class="error-container">
+                                        <form action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
+                                            <div class="no-border">
+                                                <div class="text-center grey darken-2 mt-5"
+                                                    style="margin-bottom: 4rem;font-weight: bold;font-size: 1.5rem;">
+                                                    Are you sure do you want to delete {{ object.vehicle50}} ?
+                                                </div>
+                                            </div>
+                                            <div class="error-body">
+                                                <div class="py-2 text-center" style="margin-top: 4rem">
+                                                    <div class="back-btn">
+                                                        <a href="{% url 'admin-tables' %}"> <button
+                                                                class="btn btn-success mx-5 text-uppercase white box-shadow-2 border-0">
+                                                                <i class="ft-home"></i>back
+                                                            </button></a>
+                                                        <button type="submit"
+                                                            class="btn btn-danger mx-5 text-uppercase white box-shadow-2 border-0">
+                                                            <i class="ft-home"></i> ok
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <div class="error-footer bg-transparent">
+                                            <div class="row">
+                                                <p class="clearfix text-muted text-center px-2"><span>Copyright &copy;
+                                                        2022 <a href="" id="pixinventLink" target="_blank"
+                                                            class="text-bold-800 primary darken-2">ezTruck </a>, All
+                                                        rights reserved. </span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Error page ends-->
+    </div>
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+
+    <!-- BEGIN VENDOR JS-->
+    <script src="{%static 'ezadmin/vendors/js/core/jquery-3.3.1.min.js'%}"></script>
+    <script src="{%static 'ezadmin/vendors/js/core/popper.min.js'%}"></script>
+    <script src="{%static 'ezadmin/vendors/js/core/bootstrap.min.js'%}"></script>
+    <script src="{%static 'ezadmin/vendors/js/perfect-scrollbar.jquery.min.js'%}"></script>
+    <script src="{%static 'ezadmin/vendors/js/prism.min.js'%}"></script>
+    <script src="{%static 'ezadmin/vendors/js/jquery.matchHeight-min.js'%}"></script>
+    <script src="{%static 'ezadmin/vendors/js/screenfull.min.js'%}"></script>
+    <script src="{%static 'ezadmin/vendors/js/pace/pace.min.js'%}"></script>
+    <!-- BEGIN VENDOR JS-->
+    <!-- BEGIN PAGE VENDOR JS-->
+    <!-- END PAGE VENDOR JS-->
+    <!-- BEGIN CONVEX JS-->
+    <script src="{%static 'ezadmin/js/app-sidebar.js'%}"></script>
+    <script src="{%static 'ezadmin/js/customizer.js'%}"></script>
+    <!-- END CONVEX JS-->
+    <!-- BEGIN PAGE LEVEL JS-->
+    <!-- END PAGE LEVEL JS-->
+</body>
+
+</html>

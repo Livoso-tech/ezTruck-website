@@ -1,0 +1,63 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <footer class="footer footer-static footer-light">
+        <p class="clearfix text-muted text-center px-2">
+            <span>Copyright &copy;<span id="time"> </span>
+                ezTruck, All rights
+                reserved.
+            </span>
+        </p>
+    </footer>
+
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+    <!-- BEGIN VENDOR JS-->
+    <script src="{%static 'ezadmin/vendors/js/core/jquery-3.3.1.min.js'%}"></script>
+    <script src="{%static 'ezadmin/vendors/js/core/popper.min.js'%}"></script>
+    <script src="{%static 'ezadmin/vendors/js/core/bootstrap.min.js'%}"></script>
+    <script src="{%static 'ezadmin/vendors/js/perfect-scrollbar.jquery.min.js'%}"></script>
+    <script src="{%static 'ezadmin/vendors/js/prism.min.js'%}"></script>
+    <script src="{%static 'ezadmin/vendors/js/jquery.matchHeight-min.js'%}"></script>
+    <script src="{%static 'ezadmin/vendors/js/screenfull.min.js'%}"></script>
+    <script src="{%static 'ezadmin/vendors/js/pace/pace.min.js'%}"></script>
+    <!-- BEGIN VENDOR JS-->
+    <!-- BEGIN PAGE VENDOR JS-->
+    <script src="{%static 'ezadmin/vendors/js/jquery.steps.min.js'%}"></script>
+    <script src="{%static 'ezadmin/vendors/js/datatable/datatables.min.js'%}"></script>
+    <script src="{%static 'ezadmin/vendors/js/jquery.validate.min.js'%}"></script>
+    <!-- END PAGE VENDOR JS-->
+    <script src="{%static 'ezadmin/js/dashboard-ecommerce.js'%}"></script>
+    <!-- BEGIN CONVEX JS-->
+    <script src="{%static 'ezadmin/js/app-sidebar.js'%}"></script>
+    <!-- END CONVEX JS-->
+    <!-- BEGIN PAGE LEVEL JS-->
+    <script src="{%static 'ezadmin/js/data-tables/datatable-basic.js'%}"></script>
+    <!-- END PAGE LEVEL JS-->
+    <!-- Google Maps JavaScript library -->
+    <script
+        src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyCqM7uF9c0ZMQjdssHqSMJJ3mBcmz5RNS0"></script>
+    <!-- ========== Api ========== -->
+    <script src="https://www.google.com/recaptcha/api.js?render={{recaptcha_site_key}}"></script>
+    <!-- ========== Api ========== -->
+    <!--  ALl JS Plugins
+    ====================================== -->
+    <script type="text/javascript">
+        var google_api_key = "{{GOOGLE_API_KEY|safe}}";
+    </script>
+    <script src="{%static 'ezadmin/js/autocomplete.js'%}"></script>
+    <script type="text/javascript">
+        var datetime = new Date().getFullYear();
+        console.log(datetime); // it will represent date in the console of developers tool
+        document.getElementById("time").textContent = datetime; 
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+{%load static%}{%include 'include/admin-header.html'%}
+<!DOCTYPE html>
+<html lang="en" class="loading">
+
+<head>
+    <title>Customer Details</title>
+</head>
+
+<body data-col="2-columns" class=" 2-columns ">
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+    <div class="wrapper">
+        <div class="main-panel">
+            <div class="main-content">
+                <div class="content-wrapper">
+                    <div class="container-fluid">
+                        <!-- Multi-column ordering table -->
+                        <section id="horizontal">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <div class="card-title-wrap bar-info">
+                                                <h4 class="card-title">Customer Details</h4>
+                                            </div>
+                                        </div>
+                                        <div class="card-body collapse show">
+                                            <div class="card-block card-dashboard">
+                                                <a href="{% url 'admin-customer_create' %}"
+                                                    class="btn btn-danger btn-sm">Add Customer</a>
+                                                <table
+                                                    class="table display nowrap table-striped table-bordered scroll-horizontal">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">Sl No.</th>
+                                                            <th scope="col">Name</th>
+                                                            <th scope="col">Number</th>
+                                                            <th scope="col">Address</th>
+                                                            <th scope="col">Shop Name</th>
+                                                            <th scope="col">Shop Dealing With</th>
+                                                            <th scope="col">Update</th>
+                                                            <th scope="col">Delete</th>
+                                                        </tr>
+                                                    </thead>
+                                                    {% for customer in customer %}
+                                                    <tr>
+                                                        <td>{{ forloop.counter }}</td>
+                                                        <td>{{ customer.customer_name }}</td>
+                                                        <td>{{ customer.customer_number }}</td>
+                                                        <td>{{ customer.customer_address }}</td>
+                                                        <td>{{ customer.shop_name }}</td>
+                                                        <td>{{ customer.shop_dealing }}</td>
+                                                        <td><a href="{% url 'admin-customer_update' customer.id %}"><i
+                                                                    class='fa fa-pencil'></i></a></td>
+                                                        <td><a href="{% url 'admin-customer_delete' customer.id %}"><i
+                                                                    class='fa fa-trash' style="color: red;"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                    {% endfor %}
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <!--/ Multi-column ordering table -->
+                    </div>
+                </div>
+            </div>
+            {%include 'include/admin-footer.html'%}
+        </div>
+    </div>
+</body>
+
+</html>

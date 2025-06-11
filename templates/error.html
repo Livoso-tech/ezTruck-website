@@ -1,0 +1,33 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    {%include 'include/linked.html'%}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body class="body-wrapper">
+    {%include 'include/header.html'%}
+    <!-- preloader -->
+    <section class="error-404-wrapper section-padding ">
+        <div class="container ">
+            <div class="row ">
+                <div class="col-12 text-center ">
+                    <div class="error-content ">
+                        <img src="{%static 'img/404.webp'%}" alt="Page Not Found - Logisitcs Services">
+                        <h2>Oops! this page is not found.</h2>
+                        <p>Sorry but the page you're looking for may broken or not created</p>
+                        <a href="{%url 'index'%}" class="theme-btn mt-30 "><i class="fal fa-long-arrow-left me-1 "></i> Go Back to Home</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer-1 footer-wrap">
+        {%include 'include/footer.html'%}
+    </footer>
+</body>
+
+
+</html>

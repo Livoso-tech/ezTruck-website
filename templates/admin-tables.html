@@ -1,0 +1,195 @@
+{%include 'include/admin-header.html'%}
+{%load static%}
+{% block body %}
+
+<head>
+  <title>Estimated Fare price</title>
+</head>
+
+<body data-col="2-columns" class=" 2-columns ">
+  <!-- ////////////////////////////////////////////////////////////////////////////-->
+  <div class="wrapper">
+    <div class="main-panel">
+      <div class="main-content">
+        <div class="content-wrapper">
+          <div class="container-fluid">
+            <!--Extended Table starts-->
+            <div class="row">
+              <div class="col-12">
+                <h2 class="content-header">Estimated Fare price</h2>
+              </div>
+            </div>
+            <section id="extended">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="card">
+                    <div class="card-header">
+                      <div class="card-title-wrap bar-success">
+                        <h4 class="card-title">Fare price 0-30</h4>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <div class="col shadow-lg p-3 mb-5 bg-body rounded">
+                        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for vehicle..."
+                          title="Type in a name">
+                        <a href="{% url 'admin-vehicle_create' %}" class="btn btn-danger btn-sm">Add New</a>
+                        <table id="myTable" class="table table-bordered ">
+
+                          <tr>
+                            <th scope="col">Sl No.</th>
+                            <th scope="col">Vehicle</th>
+                            <th scope="col">Vehicle Model</th>
+                            <th scope="col">Base Price</th>
+                            <th scope="col">Rate/KM</th>
+                            <th scope="col">Waiting Charge(min)</th>
+                            <th scope="col">Post Waiting</th>
+                            <!-- <th scope="col">Update</th>
+                            <th scope="col">Delete</th> -->
+                          </tr>
+
+                          {% for data in data %}
+                          <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ data.vehicle }}</td>
+                            <td>{{ data.vehicle_model }}</td>
+                            <td>{{ data.price }}</td>
+                            <td>{{ data.per_km }}</td>
+                            <td>{{ data.waiting_charge }}</td>
+                            <td>{{ data.rate_per_min }}Rs/min</td>
+                            <td><a href="{% url 'admin-vehicle_update' data.id %}"><i class='fa fa-pencil'></i></a></td>
+                            <td><a href="{% url 'admin-vehicle_delete' data.id %}"><i class='fa fa-trash'
+                                  style="color: red;"></i></a></td>
+                          </tr>
+
+                          {% endfor %}
+
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <!--Extended Table Ends-->
+            <section id="extended">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="card">
+                    <div class="card-header">
+                      <div class="card-title-wrap bar-success">
+                        <h4 class="card-title">Fare price 30-99</h4>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <div class="col shadow-lg p-3 mb-5 bg-body rounded">
+                        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for vehicle..."
+                          title="Type in a name">
+                        <a href="{% url 'admin-veh_create(50-100)' %}" class="btn btn-danger btn-sm">Add New</a>
+                        <table id="myTable" class="table table-bordered ">
+
+                          <tr>
+                            <th scope="col">Sl No.</th>
+                            <th scope="col">Vehicle</th>
+                            <th scope="col">Vehicle Model</th>
+                            <th scope="col">Base Price</th>
+                            <th scope="col">Rate/KM</th>
+                          </tr>
+
+                          {% for data50 in data50 %}
+                          <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ data50.vehicle50 }}</td>
+                            <td>{{ data50.vehicle_model50 }}</td>
+                            <td>{{ data50.price50 }}</td>
+                            <td>{{ data50.per_km50 }}</td>
+                            <td><a href="{% url 'admin-veh_update(50-100)' data50.id %}"><i
+                                  class='fa fa-pencil'></i></a></td>
+                            <td><a href="{% url 'admin-veh_delete(50-100)' data50.id %}"><i class='fa fa-trash'
+                                  style="color: red;"></i></a></td>
+                          </tr>
+
+                          {% endfor %}
+
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section id="extended">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="card">
+                    <div class="card-header">
+                      <div class="card-title-wrap bar-success">
+                        <h4 class="card-title">Fare price Above 100</h4>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <div class="col shadow-lg p-3 mb-5 bg-body rounded">
+                        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for vehicle..."
+                          title="Type in a name">
+                        <a href="{% url 'admin-veh_create(100)' %}" class="btn btn-danger btn-sm">Add New</a>
+                        <table id="myTable" class="table table-bordered ">
+
+                          <tr>
+                            <th scope="col">Sl No.</th>
+                            <th scope="col">Vehicle</th>
+                            <th scope="col">Vehicle Model</th>
+                            <th scope="col">Rate/KM</th>
+                          </tr>
+
+                          {% for data100 in data100 %}
+                          <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ data100.vehicle100 }}</td>
+                            <td>{{ data100.vehicle_model100 }}</td>
+                            <td>{{ data100.per_km100 }}</td>
+                            <td><a href="{% url 'admin-veh_update(100)' data100.id %}"><i class='fa fa-pencil'></i></a>
+                            </td>
+                            <td><a href="{% url 'admin-veh_delete(100)' data100.id %}"><i class='fa fa-trash'
+                                  style="color: red;"></i></a></td>
+                          </tr>
+
+                          {% endfor %}
+
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+      {%include 'include/admin-footer.html'%}
+    </div>
+
+  </div>
+  <!-- ////////////////////////////////////////////////////////////////////////////-->
+  <script>
+
+    function myFunction() {
+      var input, filter, tbody, table, tr, td, i, txtValue;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[1];
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
+
+  </script>
+</body>
+{% endblock %}

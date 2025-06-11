@@ -1,0 +1,110 @@
+{%load static%}{%include 'include/admin-header.html'%}
+<!DOCTYPE html>
+<html lang="en" class="loading">
+
+<head>
+    <title>admin-Vechicle-create</title>
+</head>
+
+<body data-col="2-columns" class=" 2-columns ">
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+    <div class="wrapper">
+
+        <div class="main-panel">
+            <div class="main-content">
+                <div class="content-wrapper">
+                    <div class="container-fluid">
+                        <!-- Basic form layout section start -->
+                        <section id="basic-form-layouts">
+
+                            <div class="row justify-content-md-center">
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <div class="card-title-wrap bar-primary">
+                                                <h4 class="card-title" id="basic-layout-card-center">Add Vechicle
+                                                </h4>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="px-3">
+                                                <form class="form" action="" method="POST"
+                                                    enctype="multipart/form-data">{% csrf_token %}
+                                                    <div class="form-body">
+
+                                                        <div class="form-group">
+                                                            <label for="eventRegInput1">Owner Name</label>
+                                                            <input type="text" id="eventRegInput1" class="form-control"
+                                                                name="owner_name">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="eventRegInput2">Owner Number</label>
+                                                            <input type="text" id="eventRegInput2" class="form-control"
+                                                                name="owner_number">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="eventRegInput3">Owner Address</label>
+                                                            <input type="text" id="eventRegInput3" class="form-control"
+                                                                name="owner_address">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="eventRegInput3">Vechicle No</label>
+                                                            <input type="text" id="eventRegInput3" class="form-control"
+                                                                name="owner_vechicleNo">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="eventRegInput3">RC No</label>
+                                                            <input type="text" id="eventRegInput3" class="form-control"
+                                                                name="owner_RC_no">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="issueinput5">Vechicle Type</label>
+                                                            <select id="issueinput5" name="owner_vechicle_Type"
+                                                                class="form-control" data-toggle="tooltip"
+                                                                data-trigger="hover" data-placement="top"
+                                                                data-title="Priority">
+                                                                <option value="Auto">Auto</option>
+                                                                <option value="Tata Ace">Tata Ace</option>
+                                                                <option value="Small Pickup">Small Pickup</option>
+                                                                <option value="Large Pickup">Large Pickup</option>
+                                                            </select>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="complaintinput3">Date Of Aggrement</label>
+                                                            <input type="date" id="complaintinput3" class="form-control"
+                                                                name="date_of_aggrement">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-actions center">
+                                                        <a href="{%url 'admin-leas-vech-details'%}"
+                                                            class="btn btn-danger mr-1">
+                                                            <i class="icon-trash"></i> Back
+                                                        </a>
+                                                        <button type="submit" class="btn btn-success">
+                                                            <i class="icon-note"></i> Save
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <!-- // Basic form layout section end -->
+                    </div>
+                </div>
+            </div>
+            {%include 'include/admin-footer.html'%}
+        </div>
+    </div>
+</body>
+
+</html>

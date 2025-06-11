@@ -1,0 +1,108 @@
+{%load static%}{%include 'include/admin-header.html'%}
+<!DOCTYPE html>
+<html lang="en" class="loading">
+
+<head>
+    <title>admin-local-driver-create</title>
+</head>
+
+<body data-col="2-columns" class="2-columns">
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+    <div class="wrapper">
+        <div class="main-panel">
+            <div class="main-content">
+                <div class="content-wrapper">
+                    <div class="container-fluid">
+                        <!-- Basic form layout section start -->
+                        <section id="basic-form-layouts">
+                            <div class="row justify-content-md-center">
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <div class="card-title-wrap bar-primary">
+                                                <h4 class="card-title" id="basic-layout-card-center">
+                                                    Add new local driver
+                                                </h4>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="px-3">
+                                                <form class="form" action="" method="POST"
+                                                    enctype="multipart/form-data">
+                                                    {% csrf_token %}
+                                                    <div class="form-body">
+                                                        <div class="form-group">
+                                                            <label for="eventRegInput1">Driver Name</label>
+                                                            <input type="text" id="eventRegInput1" class="form-control"
+                                                                name="locdriver_name" />
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="eventRegInput2">Driver Number</label>
+                                                            <input type="text" id="eventRegInput2" class="form-control"
+                                                                name="locdriver_number" />
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="eventRegInput3">Driver Address</label>
+                                                            <input type="text" id="eventRegInput3" class="form-control"
+                                                                name="locdriver_address" />
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="eventRegInput3">Driver Vechicle No</label>
+                                                            <input type="text" id="eventRegInput3" class="form-control"
+                                                                name="locdriver_VechicleNo" />
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="issueinput5">Driver Vechicle Type</label>
+                                                            <select id="issueinput5" name="locdriver_Vechicle_Type"
+                                                                class="form-control" data-toggle="tooltip"
+                                                                data-trigger="hover" data-placement="top"
+                                                                data-title="Priority">
+                                                                <option value="Auto">Auto</option>
+                                                                <option value="Tata Ace">Tata Ace</option>
+                                                                <option value="Small Pickup">Small Pickup</option>
+                                                                <option value="Large Pickup">Large Pickup</option>
+                                                            </select>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="issueinput6">OCD / OAD</label>
+                                                            <select id="issueinput6" name="locdriver_OCD_OAD"
+                                                                class="form-control" data-toggle="tooltip"
+                                                                data-trigger="hover" data-placement="top"
+                                                                data-title="Status">
+                                                                <option value="OCD">OCD</option>
+                                                                <option value="OAD">OAD</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-actions center">
+                                                        <a href="{%url 'admin-loc-driver-details'%}"
+                                                            class="btn btn-danger mr-1">
+                                                            <i class="icon-trash"></i> Back
+                                                        </a>
+                                                        <button type="submit" class="btn btn-success">
+                                                            <i class="icon-note"></i> Save
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <!-- // Basic form layout section end -->
+                    </div>
+                </div>
+            </div>
+            {%include 'include/admin-footer.html'%}
+        </div>
+    </div>
+</body>
+
+</html>

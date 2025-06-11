@@ -1,0 +1,97 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Application Form</title>
+    <meta name="description"
+        content="Introducing ezTruck, the innovative logistics solution in Bhubaneswar. ezTruck provides the most affordable logistics solutions at a jiffy in Bhubaneswar.">
+    <meta name="keywords"
+        content="logistics company bhubaneswar, Mini truck Booking Services, Online Truck Booking Services, Packers Movers Services, Enterprise Logistics Solutions, Mining Logistics Odisha, Construction Material Logistics, E-commerce logistics">
+
+    {%include 'include/linked.html'%}
+    <link rel="stylesheet" href="{%static 'css/apply.css'%}" />
+</head>
+
+<body>
+    {%include 'include/header.html'%}
+    <div class="container">
+        <div class="apply_box">
+            <h1>
+                Job Application
+            </h1>
+            <form onsubmit="return validateForm()" method="POST" enctype="multipart/form-data">
+                <div class="form_container">
+                    <div class="form_control">
+                        <label for="first_name"> First Name </label>
+                        <input id="first_name" name="first_name" placeholder="Enter First Name..." />
+                    </div>
+                    <div class="form_control">
+                        <label for="last_name"> Last Name </label>
+                        <input id="last_name" name="last_name" placeholder="Enter Last Name..." />
+                    </div>
+                    <div class="form_control">
+                        <label for="email"> Email </label>
+                        <input type="email" id="email" name="email" placeholder="Enter Email..." />
+                    </div>
+                    <div class="form_control">
+                        <label for="Number"> Number </label>
+                        <input type="number" id="number" name="phone" placeholder="Enter your number..." />
+                    </div>
+                    <div class="form_control">
+                        <label for="date"> Date </label>
+                        <input value="2022-01-10" type="date" id="date" name="birthday" />
+                    </div>
+                    <div class="form_control">
+                        <label for="city"> City </label>
+                        <select name="location">
+                            <option disabled="disabled" selected="selected">Choose option</option>
+                            <option>Bhubaneswar</option>
+                            <option>Cuttack</option>
+                            <option>Berhampur</option>
+                        </select>
+                    </div>
+                    <div class="textarea_control">
+                        <label for="address"> Address </label>
+                        <textarea id="address" name="ad" row="4" cols="50" placeholder="Enter Address"></textarea>
+                    </div>
+                    <div class="form_control">
+                        <label> Gender </label>
+                        <ul>
+                            <li style="list-style:none;">
+                                <input type="radio" name="gender" value="Male" /> Male
+                                <input type="radio" name="gender" value="Female" id="custom_venuetype_private" /> Female
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="form_control">
+                        <label for="job_role"> Job Role </label>
+                        <select id="job_role" name="job_role">
+                            <option value="">Select Job Role</option>
+                            <option value="admin">Admin Manager</option>
+                            <option value="marketing">Marketing Executive</option>
+                            <option value="operation">Operation Executive</option>
+                            <option value="digital">Digital Marketing Intern</option>
+                            <option value="backend">Backend Developer</option>
+                            <option value="business">Business Development Executive</option>
+
+                        </select>
+                    </div>
+                    <div class="form_control">
+                        <label for="upload"> Upload Your CV </label>
+                        <input type="file" id="upload" name="myfile" />
+                    </div>
+                </div>
+                <div class="button_container">
+                    <button type="submit">Apply Now</button>{%csrf_token%}
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

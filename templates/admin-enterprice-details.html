@@ -1,0 +1,72 @@
+{%load static%}{%include 'include/admin-header.html'%}
+<!DOCTYPE html>
+<html lang="en" class="loading">
+
+<head>
+    <title>Enterprice Details</title>
+</head>
+
+<body data-col="2-columns" class=" 2-columns ">
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+    <div class="wrapper">
+        <div class="main-panel">
+            <div class="main-content">
+                <div class="content-wrapper">
+                    <div class="container-fluid">
+                        <!-- Multi-column ordering table -->
+                        <section id="horizontal">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <div class="card-title-wrap bar-info">
+                                                <h4 class="card-title">Enterprise Details</h4>
+                                            </div>
+                                        </div>
+                                        <div class="card-body collapse show">
+                                            <div class="card-block card-dashboard">
+                                                <table
+                                                    class="table display nowrap table-striped table-bordered scroll-horizontal">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>ID</th>
+                                                            <th>Name</th>
+                                                            <th>Email</th>
+                                                            <th>Phone</th>
+                                                            <th>City</th>
+                                                            <th>Company Name</th>
+                                                            <th>Licence Number</th>
+                                                            <th>Vehicle Number</th>
+                                                            <th>Vehicle Type</th>
+                                                        </tr>
+                                                    </thead>
+                                                    {% for data2 in data2 %}
+                                                    <tr>
+                                                        <td>{{ forloop.counter }}</td>
+                                                        <td>{{data2.Enterp_name}}</td>
+                                                        <td>{{data2.Enterp_email}}</td>
+                                                        <td>{{data2.Enterp_num}}</td>
+                                                        <td>{{data2.Enterp_city}}</td>
+                                                        <td>{{data2.Company}}</td>
+                                                        <td>{{data2.Enterp_lic_number}}</td>
+                                                        <td>{{data2.Enterp_veh_number}}</td>
+                                                        <td>{{data2.Enterp_vehicle}}</td>
+                                                    </tr>
+                                                    {% endfor %}
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <!--/ Multi-column ordering table -->
+                    </div>
+                </div>
+            </div>
+            {%include 'include/admin-footer.html'%}
+        </div>
+    </div>
+</body>
+
+</html>

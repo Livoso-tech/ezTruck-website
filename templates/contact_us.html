@@ -1,0 +1,72 @@
+{% extends 'navbar.html' %}
+{% load static %}
+{% block body %}
+    <div>
+      <p class="h4 text-center">
+          Contact Us
+      </p>
+    </div><br>
+     <div class="container">
+        <div class="row">
+
+
+          <div class="col shadow-lg p-3 mb-5 bg-body rounded">
+              <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for vehicle..." title="Type in a name">
+              <a href="{% url 'vehicle_create' %}" class="btn btn-primary btn-sm">Add New</a>
+              <table id="myTable" class="table table-bordered ">
+
+                <tr>
+                    <th scope="col">Sl No.</th>
+                    <th scope="col">User Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Subject</th>
+                    <th scope="col">Message</th>
+
+                </tr>
+
+              {% for data in online %}
+                <tr>
+                  <td>{{ forloop.counter }}</td>
+                  <td>{{ data.Uname }}</td>
+                  <td>{{ data.Umail }}</td>
+                  <td>{{ data.Uphn }}</td>
+                  <td>{{ data.Usub }}</td>
+                  <td>{{ data.Umsg }}</td>
+
+
+                </tr>
+
+              {% endfor %}
+
+            </table>
+          </div>
+          &nbsp; &nbsp; &nbsp;
+        </div>
+      </div>
+
+<script>
+
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+
+</script>
+
+
+{% endblock %}

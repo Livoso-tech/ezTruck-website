@@ -1,0 +1,75 @@
+{%load static%}{%include 'include/admin-header.html'%}
+<!DOCTYPE html>
+<html lang="en" class="loading">
+
+<head>
+    <title>Lease Vechicle Details</title>
+</head>
+
+<body data-col="2-columns" class=" 2-columns ">
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+    <div class="wrapper">
+        <div class="main-panel">
+            <div class="main-content">
+                <div class="content-wrapper">
+                    <div class="container-fluid">
+                        <!-- Multi-column ordering table -->
+                        <section id="horizontal">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <div class="card-title-wrap bar-info">
+                                                <h4 class="card-title">Vechicle Details</h4>
+                                            </div>
+                                        </div>
+                                        <div class="card-body collapse show">
+                                            <div class="card-block card-dashboard">
+                                                <a href="{% url 'admin-leas-vech-create' %}" class="btn btn-danger btn-sm">Add Vechicle</a>
+                                                <table class="table display nowrap table-striped table-bordered scroll-horizontal">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">Sl No.</th>
+                                                            <th scope="col">Name</th>
+                                                            <th scope="col">Number</th>
+                                                            <th scope="col">Address</th>
+                                                            <th scope="col">Vechicle No</th>
+                                                            <th scope="col">Vechicle Type</th>
+                                                            <th scope="col">RC No</th>
+                                                            <th scope="col">Date Of Aggrement</th>
+                                                            <th scope="col">Update</th>
+                                                            <th scope="col">Delete</th>
+                                                        </tr>
+                                                    </thead>
+                                                    {% for leasvechicle in leasvechicle %}
+                                                    <tr>
+                                                        <td>{{ forloop.counter }}</td>
+                                                        <td>{{ leasvechicle.owner_name }}</td>
+                                                        <td>{{ leasvechicle.owner_number }}</td>
+                                                        <td>{{ leasvechicle.owner_address }}</td>
+                                                        <td>{{ leasvechicle.owner_vechicleNo }}</td>
+                                                        <td>{{ leasvechicle.owner_vechicle_Type }}</td>
+                                                        <td>{{ leasvechicle.owner_RC_no }}</td>
+                                                        <td>{{ leasvechicle.date_of_aggrement }}</td>
+                                                        <td><a href="{% url 'admin-leas-vech-update' leasvechicle.id %}"><i class='fa fa-pencil'></i></a></td>
+                                                        <td><a href="{% url 'admin-leas-vech-delete' leasvechicle.id %}"><i class='fa fa-trash'
+                                                        style="color: red;"></i></a></td>
+                                                    </tr>
+                                                    {% endfor %}
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <!--/ Multi-column ordering table -->
+                    </div>
+                </div>
+            </div>
+            {%include 'include/admin-footer.html'%}
+        </div>
+    </div>
+</body>
+
+</html>

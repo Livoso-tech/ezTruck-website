@@ -1,0 +1,170 @@
+{%load static%}
+<html lang="en">
+
+<head>
+    <title>Best innovative logistic solutions in Bhubaneswar | ezTruck | 1800-208-3311</title>
+    <meta name="description"
+        content="Introducing ezTruck, the innovative logistics solution in Bhubaneswar. ezTruck provides the most affordable logistics solutions at a jiffy in Bhubaneswar.">
+    <meta name="keywords"
+        content="logistics company bhubaneswar, Mini truck Booking Services, Online Truck Booking Services, Packers Movers Services, Enterprise Logistics Solutions, Mining Logistics Odisha, jobs, career, Construction Material Logistics, E-commerce logistics">
+    <link rel="canonical" href="https://eztruck.co/priceCalculator.html">
+    {%include 'include/linked.html'%}
+</head>
+<body class="body-wrapper">
+    {%include 'include/header.html'%}
+    <section class="request-a-quote-section theme-bg bg-cover calculate-wrapper section-padding"
+        style="background-image: url('/static/images/cost-calculator-bg.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-5 col-12">
+                    <div class="block-contents mb-20 pr-30">
+                        <div class="section-title">
+                            <h5 class="textleft">quote</h5>
+                            <span>Request a quote</span>
+                            <h2>Cost <span>Calculator</span></h2>
+                            <p class="text-white">You can know the Price for your Transportation in Advance. We Offers
+                                intellgent concepts for road and tail and well as complex special transport services</p>
+                        </div>
+                    </div>
+                    <div class="row me-xl-5 text-white">
+                        <div class="col-sm-6">
+                            <div class="single-request-element">
+                                <div class="icon">
+                                    <i class="fal fa-warehouse"></i>
+                                </div>
+                                <h6>Warehouse</h6>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="single-request-element">
+                                <div class="icon">
+                                    <i class="fal fa-location"></i>
+                                </div>
+                                <h6>Online Tracking</h6>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="single-request-element">
+                                <div class="icon">
+                                    <i class="fal fa-headset"></i>
+                                </div>
+                                <h6>Support 24/7</h6>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="single-request-element">
+                                <div class="icon">
+                                    <i class="fal fa-shield-check"></i>
+                                </div>
+                                <h6>Vehicle Insurance</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-7 col-12">
+                    <div class="request-quote-form-wrapper mt-5 mt-xl-0 ms-xl-3">
+                        <h4>Estimated Price according to vehicle</h4>
+                        <div class="request-quote-form">
+                            <form method="get">{%csrf_token%}
+                                <div class="row d-flex align-item-center">
+                                    <div class="single-price-bar">
+
+                                        <div class="row align-items-center">
+                                            <div class="col-xl-3 ">
+                                                <div class="package-name">
+                                                    <h5>Vehicle Type</h5>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-9 pe-xl-0  mb-3">
+                                                <div class="package-features">
+                                                    <span>{{ob.truck}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <div class="row align-items-center">
+                                            <div class="col-xl-3 mb-2">
+                                                <div class="package-name">
+                                                    <h5>Start</h5>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-9 pe-xl-0  mb-2 mt-2">
+                                                <div class="package-features">
+                                                    <span>{{ob.source}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <div class="row align-items-center mt-2">
+                                            <div class="col-xl-3">
+                                                <div class="package-name">
+                                                    <h5>Destination</h5>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-9 pe-xl-0  mb-2">
+                                                <div class="package-features">
+                                                    <span>{{ob.destination}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <div class="row align-items-center mt-3">
+                                            <div class="col-xl-3">
+                                                <div class="package-name">
+                                                    <h5>Duration</h5>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-9 pe-xl-0 mb-3">
+                                                <div class="package-features">
+                                                    <span>{{ob.durations}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <div class="row align-items-center mt-3">
+                                            <div class="col-xl-3">
+                                                <div class="package-name">
+                                                    <h5>Distance</h5>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-9 pe-xl-0 mb-3">
+                                                <div class="package-features">
+                                                    <span>{{ob.distance}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="single-price-bar active">
+                                            <div class="row align-items-center">
+                                                <div class="col-xl-3">
+                                                    <div class="package-name">
+                                                        <h3>Price</h3>
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-xl-6">
+                                                    <div class="package-price">
+                                                        <h2><span>₹{{ob.total_price}}</span></h2>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <button href="{%url 'index'%}" class="theme-btn2">Confirm Booking</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>

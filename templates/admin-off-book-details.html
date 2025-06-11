@@ -1,0 +1,97 @@
+{%load static%}{%include 'include/admin-header.html'%}
+<!DOCTYPE html>
+<html lang="en" class="loading">
+
+<head>
+    <title>Offline Booking Details</title>
+</head>
+
+<body data-col="2-columns" class=" 2-columns ">
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+    <div class="wrapper">
+        <div class="main-panel">
+            <div class="main-content">
+                <div class="content-wrapper">
+                    <div class="container-fluid">
+                        <!-- Multi-column ordering table -->
+                        <section id="horizontal">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <div class="card-title-wrap bar-info">
+                                                <h4 class="card-title">Offline Booking Details</h4>
+                                            </div>
+                                        </div>
+                                        <div class="card-body collapse show">
+                                            <div class="card-block card-dashboard">
+                                                <a href="{% url 'admin-off-book-create' %}" class="btn btn-danger btn-sm">Booking Here</a>
+                                                <table class="table display nowrap table-striped table-bordered scroll-horizontal">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">Sl No.</th>
+                                                            <th scope="col">Invoice_No</th>
+                                                            <th scope="col">OffBookingDate</th>
+                                                            <th scope="col">Customer_Name</th>
+                                                            <th scope="col">Customer_Number</th>
+                                                            <th scope="col">Customer_Share</th>
+                                                            <th scope="col">Driver_Share</th>
+                                                            <th scope="col">Payment_Status</th>
+                                                            <th scope="col">Date_of_payment</th>
+                                                            <th scope="col">Pickup_Location</th>
+                                                            <th scope="col">Drop_Location</th>
+                                                            <th scope="col">Weightage</th>
+                                                            <th scope="col">Km_Booking</th>
+                                                            <th scope="col">Booking_Status</th>
+                                                            <th scope="col">Driver_Name</th>
+                                                            <th scope="col">Driver_Phone</th>
+                                                            <th scope="col">Vechicle_Number</th>
+                                                            <th scope="col">Vechicle_Type</th>
+                                                            <th scope="col">Executive</th>
+                                                            <th scope="col">Update</th>
+                                                            <th scope="col">Delete</th>
+                                                        </tr>
+                                                    </thead>
+                                                    {% for offbookdetails in offbookdetails %}
+                                                    <tr>
+                                                        <td>{{ forloop.counter }}</td>
+                                                        <td>{{ offbookdetails.Invoice_No }}</td>
+                                                        <td>{{ offbookdetails.OffBookingDate }}</td>
+                                                        <td>{{ offbookdetails.Customer_Name }}</td>
+                                                        <td>{{ offbookdetails.Customer_Number }}</td>
+                                                        <td>{{ offbookdetails.Customer_Share}}</td>
+                                                        <td>{{ offbookdetails.Driver_Share }}</td>
+                                                        <td>{{ offbookdetails.Payment_Status }}</td>
+                                                        <td>{{ offbookdetails.Date_of_payment }}</td>
+                                                        <td>{{ offbookdetails.Pickup_Location }}</td>
+                                                        <td>{{ offbookdetails.Drop_Location }}</td>
+                                                        <td>{{ offbookdetails.Weightage}}</td>
+                                                        <td>{{ offbookdetails.Km_Booking }}</td>
+                                                        <td>{{ offbookdetails.Booking_Status }}</td>
+                                                        <td>{{ offbookdetails.Driver_Name }}</td>
+                                                        <td>{{ offbookdetails.Driver_Phone }}</td>
+                                                        <td>{{ offbookdetails.Vechicle_Number }}</td>
+                                                        <td>{{ offbookdetails.Vechicle_Type }}</td>
+                                                        <td>{{ offbookdetails.Executive }}</td>
+                                                        <td><a href="{% url 'admin-off-book-update' offbookdetails.id %}"><i class='fa fa-pencil'></i></a></td>
+                                                        <td><a href="{% url 'admin-off-book-delete' offbookdetails.id %}"><i class='fa fa-trash'
+                                                        style="color: red;"></i></a></td>
+                                                    </tr>
+                                                    {% endfor %}
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <!--/ Multi-column ordering table -->
+                    </div>
+                </div>
+            </div>
+          {%include 'include/admin-footer.html'%}
+        </div>
+    </div>
+</body>
+
+</html>
