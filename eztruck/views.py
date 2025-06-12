@@ -127,7 +127,7 @@ def help(request):
     return render(request,'help.html')
     
 def error(request,exception=None):
-    return render(request,'index.html')
+    return render(request,'error..html')
  
 def termANDconditions(request):
     return render(request,'termANDconditions.html')
