@@ -32,12 +32,17 @@ DEBUG = False
 # EMAIL_USE_SSL=True
 EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST='smtp.gmail.com'
-EMAIL_PORT=465
+EMAIL_PORT=587
 EMAIL_HOST_USER="eztruck.co@gmail.com"
+# "eztruck.co@gmail.com"
+# EMAIL_HOST_PASSWORD="wpmcebcmghgbtrwb"
 EMAIL_HOST_PASSWORD="wpmcebcmghgbtrwb"
-EMAIL_USE_SSL=True
+EMAIL_USE_SSL = False
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
 ALLOWED_HOSTS = ['https://eztruck.co','http://eztruck.co','http://localhost', 'localhost','www.eztruck.co','https://www.eztruck.co', '127.0.0.1','http://127.0.0.1']
-CSRF_TRUSTED_ORIGINS = ['https://eztruck.co','http://www.eztruck.co','https://www.eztruck.co','http://eztruck.co']
+CSRF_TRUSTED_ORIGsINS = ['https://eztruck.co','http://www.eztruck.co','https://www.eztruck.co','http://eztruck.co']
 # 'https://eztruck.co', 'eztruck.co', 'www.eztruck.co'
 
 #DataFlair #Memcached
@@ -101,7 +106,7 @@ DATABASES = {
          'ENGINE': 'django.db.backends.mysql', 
          'NAME': 'eztruck',
          'USER': 'root',
-         'PASSWORD': 'Arpita@2022',
+         'PASSWORD': 'Amitav@livoso',
          'HOST': 'localhost',
          'PORT': '3306',
     }

@@ -1,163 +1,52 @@
 import re
 from django.shortcuts import render
-from .models import drivers_details,ContactUs,CareerApply,Enterprice,Bookings
+from .models import drivers_details, ContactUs, CareerApply, Enterprice, Bookings
 from django.conf import settings
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.views.decorators.csrf import csrf_protect
 from django.views.generic import CreateView
-from ezadmin.models import VehicleDetails,VehicleDetails50_100,VehicleDetailsAbove100
-# from geopy.geocoders import Nominatim
+from ezadmin.models import VehicleDetails, VehicleDetails50_100, VehicleDetailsAbove100
 import googlemaps
-# Create your views here.
+
 @csrf_protect
 def index(request):
+    context = {}
+
     if request.method == 'POST':
-        bn = request.POST['bname']
-        bmail = request.POST['bemail']
-        bphn = request.POST['bnum']
-        sour = request.POST['deliverycity']
-        dest = request.POST['departurecity']
-        bvehicle = request.POST['ftype']
-        #---Map API--
-        gmaps = googlemaps.Client(key='AIzaSyCqM7uF9c0ZMQjdssHqSMJJ3mBcmz5RNS0')
-        my_dist = gmaps.distance_matrix(sour,dest)['rows'][0]['elements'][0]
-        
-        database_dist = my_dist['distance']['text']
-        database_time = my_dist['duration']['text']
-        
-        
-        km = my_dist['distance']['text'].split(" ")[0]
-        total_dist1 = re.sub(',',"",km)
-        total_time1 = my_dist['duration']['value']
-        
-        conv_dist1 = float(total_dist1)
-        minutes = total_time1 // 60
-        #for 0 - 30
-        bp = [i.price for i in VehicleDetails.objects.all()]
-        perkm = [i.per_km for i in VehicleDetails.objects.all()]
-        permin = [i.rate_per_min for i in VehicleDetails.objects.all()]
-        waiting = [i.waiting_charge for i in VehicleDetails.objects.all()]
-        v = [i.vehicle for i in VehicleDetails.objects.all()]
-        
-        #for 30-99
-        bp99 = [i.price50 for i in VehicleDetails50_100.objects.all()]
-        perkm99 = [i.per_km50 for i in VehicleDetails50_100.objects.all()]
-        v99 = [i.vehicle50 for i in VehicleDetails50_100.objects.all()]
-        
-        #for above 100
-        perkm100 = [i.per_km100 for i in VehicleDetailsAbove100.objects.all()]
-        v100 = [i.vehicle100 for i in VehicleDetailsAbove100.objects.all()]
-        
-        #for 0 - 30
-        if bvehicle == v[0]:
-            base_fare = bp[0]
-            per_km = perkm[0]
-            per_min = permin[0]
-            wait_chrg = int(waiting[0])
-        elif bvehicle == v[1]:
-            base_fare = bp[1]
-            per_km = perkm[1]
-            per_min = permin[1]
-            wait_chrg = int(waiting[1])
-        elif bvehicle == v[2]:
-            base_fare = bp[2]
-            per_km = perkm[2]
-            per_min = permin[2]
-            wait_chrg = int(waiting[2])
-        elif bvehicle == v[3]:
-            base_fare = bp[3]
-            per_km = perkm[3]
-            per_min = permin[3]
-            wait_chrg = int(waiting[3])
-            
-        #for 30-99    
-        if bvehicle == v99[0]:
-            base_fare99 = bp99[0]
-            per_km99 = perkm99[0]
-        elif bvehicle == v99[1]:
-            base_fare99 = bp99[1]
-            per_km99 = perkm99[1]
-        elif bvehicle == v99[2]:
-            base_fare99 = bp99[2]
-            per_km99 = perkm99[2]
-        elif bvehicle == v99[3]:
-            base_fare99 = bp99[3]
-            per_km99 = perkm99[3]
-            
-        #for above 100
-        if bvehicle == v100[0]:
-            per_km100 = perkm100[0]
-        elif bvehicle == v100[1]:
-            per_km100 = perkm100[1]
-        elif bvehicle == v100[2]:
-            per_km100 = perkm100[2]
-        elif bvehicle == v100[3]:
-            per_km100 = perkm100[3]
-        
-        #for 0 - 30   
-        if (conv_dist1 > 2.5 and conv_dist1 <= 30):
-            if bvehicle.lower() == 'auto' and minutes >= wait_chrg:
-                driver_fare = ((conv_dist1 * per_km) + ((minutes - wait_chrg) * per_min) + base_fare)
+        print("==== POST request received ====")
+        bn = request.POST.get('bname')
+        bmail = request.POST.get('bemail')
+        bphn = request.POST.get('bnum')
+        sour = request.POST.get('deliverycity')
+        dest = request.POST.get('departurecity')
+        bvehicle = request.POST.get('ftype')
 
-            elif bvehicle.lower() == 'tata ace' and minutes >= wait_chrg:
-                driver_fare = ((conv_dist1 * per_km) + ((minutes - wait_chrg) * per_min) + base_fare)
+        subject = "New Booking Request from Website"
+        message = f"""
+        New booking inquiry received:
 
-            elif bvehicle.lower() == 'small pickup' and minutes >= wait_chrg:
-                driver_fare = ((conv_dist1 * per_km) + ((minutes - wait_chrg) * per_min) + base_fare)
+        Name: {bn}
+        Email: {bmail}
+        Phone: {bphn}
+        From: {sour}
+        To: {dest}
+        Vehicle Type: {bvehicle}
+        """
+        try:
+            send_mail(
+                subject,
+                message,
+                settings.EMAIL_HOST_USER,
+                ['hello@eztruck.co'],
+                fail_silently=False,
+            )
+            context['popup'] = "Booking request submitted successfully!"
+        except Exception as e:
+            print("❌ Error sending email:", str(e))
+            context['popup'] = "Failed to send booking. Please try again later."
 
-            elif bvehicle.lower() == 'large pickup' and minutes >= wait_chrg:
-                driver_fare = ((conv_dist1 * per_km) + ((minutes - wait_chrg) * per_min) + base_fare)
-
-            else:
-                driver_fare = ((conv_dist1 * per_km) + base_fare)
-        
-        #for 30-99   
-        if (conv_dist1 > 30 and conv_dist1 <= 99):
-            if bvehicle.lower() == 'auto':
-                driver_fare = (2 * conv_dist1 * per_km99) +  base_fare99
-
-            elif bvehicle.lower() == 'tata ace':
-                driver_fare = (2 * conv_dist1 * per_km99) +  base_fare99
-
-            elif bvehicle.lower() == 'small pickup':
-                driver_fare = (2 * conv_dist1 * per_km99) +  base_fare99
-
-            elif bvehicle.lower() == 'large pickup':
-                driver_fare = (2 * conv_dist1 * per_km99) +  base_fare99
-
-            else:
-                driver_fare = (2 * conv_dist1 * per_km99) +  base_fare99
-        
-        #for above 100    
-        if (conv_dist1 > 99):
-            if bvehicle.lower() == 'auto':
-                driver_fare = (2 * conv_dist1 * per_km100) 
-
-            elif bvehicle.lower() == 'tata ace':
-                driver_fare = (2 * conv_dist1 * per_km100) 
-
-            elif bvehicle.lower() == 'small pickup':
-                driver_fare = (2 * conv_dist1 * per_km100) 
-
-            elif bvehicle.lower() == 'large pickup':
-                driver_fare = (2 * conv_dist1 * per_km100) 
-        
-        commission = driver_fare * (5 / 100)
-        float_value = driver_fare + commission
-        estimate = "{:.2f}".format(float_value)
-        #---Map API End----
-        ob = Bookings.objects.create(Bname=bn,Bemail=bmail,Bphone=bphn, source=sour,destination=dest,truck=bvehicle,distance=database_dist,durations=database_time,total_price=estimate)
-        ob.save()
-        
-        recipient_list = [bmail]
-        mess = render_to_string('bookingMail.html',{"B_name":bn,"B_mail":bmail,"B_phone":bphn,"Source":sour,"Destination":dest,"vich":bvehicle})
-        sendmess = render_to_string('bookingSuccessfulMail.html',{"B_name":bn})
-        send_mail('Bookings',bvehicle,settings.EMAIL_HOST_USER,['amitav@livosotech.com'],html_message=mess)
-        send_mail('Bookings',bvehicle,settings.EMAIL_HOST_USER,recipient_list,html_message=sendmess)
-        return render(request, 'priceCalculator.html',{'ob':ob})
-    booking = Bookings.objects.all().count()
-    return render(request, 'index.html', {'booking':booking})
+    return render(request, 'index.html', context)
 
 def price(request):
     return render(request , 'priceCalculator.html')
